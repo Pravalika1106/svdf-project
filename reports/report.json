@@ -1,0 +1,46 @@
+{
+  "generated_at": "2025-12-04T16:05:45",
+  "target": "samples",
+  "static_findings": [
+    {
+      "id": "S004",
+      "file": "samples\\trapdoor.c",
+      "line": 6,
+      "message": "Hard-coded credential-like string literal",
+      "severity": "CRITICAL",
+      "snippet": "if (strcmp(p, \"opensesame\") == 0) {",
+      "suggested_fix": "Do not store secrets in source code"
+    },
+    {
+      "id": "S004",
+      "file": "samples\\trapdoor.c",
+      "line": 7,
+      "message": "Hard-coded credential-like string literal",
+      "severity": "CRITICAL",
+      "snippet": "// a \"trapdoor\" hard-coded secret that grants access",
+      "suggested_fix": "Do not store secrets in source code"
+    },
+    {
+      "id": "S005",
+      "file": "samples\\trapdoor.c",
+      "line": 8,
+      "message": "Use of system() can lead to command injection",
+      "severity": "HIGH",
+      "snippet": "system(\"/bin/echo 'TRAPDOOR ACTIVATED'; /bin/ls /root || true\");",
+      "suggested_fix": "Avoid system(); use execve() safely with proper validation"
+    }
+  ],
+  "sanitizer": {
+    "samples\\buffer_overflow.c": {
+      "compile_returncode": 1,
+      "compile_stdout": "",
+      "compile_stderr": "gcc: error: 'samples\\buffer_overflow.c': No such file or directory\ngcc: fatal error: no input files\ncompilation terminated.\n"
+    },
+    "samples\\trapdoor.c": {
+      "compile_returncode": 1,
+      "compile_stdout": "",
+      "compile_stderr": "gcc: error: 'samples\\trapdoor.c': No such file or directory\ngcc: fatal error: no input files\ncompilation terminated.\n"
+    }
+  },
+  "fuzzer_crashes": []
+}
