@@ -1,4 +1,4 @@
-# 🔐 Security Vulnerability Detection Framework (SVDF)
+# 🔐 Security Vulnerability Detection Framework (SVDF):
 
 > A hybrid static + dynamic + fuzzing–based vulnerability detection system for identifying  
 > **Buffer Overflows**, **Trapdoors**, and **Hard-Coded Credentials** in C programs.
